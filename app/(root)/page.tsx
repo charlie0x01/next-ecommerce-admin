@@ -1,6 +1,12 @@
+import { UserButton } from "@clerk/nextjs";
 
-export default function Home() {
+const SetupPage = () => {
   return (
-    <p>hello E-Commerce Admin</p>
-  )
+    <div className="p-4">
+      <p>This is a Protected Page!!</p>
+      <UserButton afterSignOutUrl="/" />
+    </div>
+  );
 }
+
+export default SetupPage;
