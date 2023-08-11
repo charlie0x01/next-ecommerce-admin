@@ -1,6 +1,9 @@
-import prismadb from "@/lib/prismadb";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+
+// local imports
+import Navbar from "@/components/navbar";
+import prismadb from "@/lib/prismadb";
 
 export default async function DashboardLayout({
   children,
@@ -29,7 +32,7 @@ export default async function DashboardLayout({
 
   return (
     <>
-      <h1>This is a Navigation</h1>
+      <Navbar />
       {children}
     </>
   );
