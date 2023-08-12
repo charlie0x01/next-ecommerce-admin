@@ -19,7 +19,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-hot-toast";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 // form validation schema
 const formSchema = z.object({
@@ -28,6 +28,7 @@ const formSchema = z.object({
 
 export const StoreModal = () => {
   const store = useStoreModal();
+  const router = useRouter();
 
   const [loading, setLoading] = useState(false);
 
@@ -49,8 +50,7 @@ export const StoreModal = () => {
       toast.success("Store created");
 
       form.reset();
-
-      // redirect(`/${response.data.id}`);
+      router.refresh();
     } catch (error) {
       console.log("[CREATE_STORE] ", error);
       toast.error("something went wront!");
